@@ -50,12 +50,12 @@ nav {
 
 #hero-section {
   width: 100%;
-  background-image: url('./assets/images/hero.png');
   margin-top: -1.5cm;
   padding: 15rem 10px 15rem 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url('./assets/images/hero.png');
   background-size: cover;
 }
 
@@ -106,4 +106,63 @@ h1 span:last-child {
     color: var(--blue);
 }
 
+#history {
+    width: 100%;
+    height: 370px;
+    background-image: url('./assets/images/peak.png');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.intro {
+    justify-self: center;
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+}
+
+.title p {
+    font-size: 5rem;
+    font-weight: 700;
+    color: var(--lightDark);
+    padding: 0;
+}
+
+.title .text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.title .text h2 {
+    color: var(--blue);
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.dot {
+    height: 0.5cm;
+    width: 0.5cm;
+    background-color: var(--lightDark);
+}
+
+.intro-p{
+    padding: 5px;
+    font-size: 18px;
+    color: var(--lightDark);
+}
+
+.carousel {
+    background-color: red;
+    width: 100%;
+    height: 1cm;
+}
