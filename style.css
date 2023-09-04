@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+    --blue: #414f6b;
+    --lightDark: #4d4d4d;
+}
+
+body {
+  width: 100%;
+}
+
+header {
+  width: 100%;
+}
+
+nav {
+  height: 1.5cm;
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.logo {
+  height: 1.2cm;
+  width: 1.2cm;
+  border-radius: 50%;
+  border: 2px solid rgb(189, 189, 189);
+}
+
+.nav-links {
+  display: flex;
+  list-style-type: none;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.nav-links > li {
+    color: var(--lightDark);
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
+#hero-section {
+  width: 100%;
+  background-image: url('./assets/images/hero.png');
+  margin-top: -1.5cm;
+  padding: 15rem 10px 15rem 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+}
+
+h1 {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 40px;
+}
+
+h1 span:first-child {
+    color: var(--lightDark);
+}
+
+h1 span:last-child {
+    color: var(--blue);
+}
+
+.sticky-nav {
+    top: 0;
+    position: sticky;
+}
+
+.sticky-links {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    text-decoration: none;
+
+}
+
+.sticky-links img {
+    height: 1cm;
+    width: 1cm;
+    border-radius: 0.5cm;
+    border: 1px solid var(--lightDark);
+}
+
+.sticky-links p span {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.sticky-links p span:first-child {
+    color: var(--lightDark);
+}
+
+.sticky-links p span:last-child {
+    color: var(--blue);
+}
+
+
