@@ -1,13 +1,33 @@
 * {
   margin: 0;
   box-sizing: border-box;
-  transition: .4s;
+  transition: 0.4s;
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 1px;
+  height: 1px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #333;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 6px;
 }
 
 :root {
   --blue: #414f6b;
   --lightDark: #4d4d4d;
   --ash: #9fa7b5;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
 }
 
 body {
@@ -37,14 +57,53 @@ nav {
   border: 2px solid rgb(189, 189, 189);
 }
 
+footer {
+  background-color: var(--blue);
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 10px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+footer a {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.767);
+  opacity: 0.3;
+}
+
+footer a img {
+  height: 1cm;
+  width: 1cm;
+  border-radius: 0.5cm;
+  border: 1px solid var(--lightDark);
+}
+
+footer a p span {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+footer p {
+  text-transform: uppercase;
+  color: white;
+  opacity: 0.2;
+}
+
 .nav-links {
   display: flex;
   list-style-type: none;
   flex-direction: row;
   gap: 20px;
+  z-index: 99;
 }
 
-.nav-links > li {
+.nav-links > li a {
   color: var(--lightDark);
   text-transform: uppercase;
   text-decoration: underline;
@@ -157,9 +216,9 @@ h1 span:last-child {
 }
 
 .intro-p {
-  padding: 5px;
-  font-size: 18px;
   color: var(--lightDark);
+  padding: 5px 5rem;
+  font-size: 20px;
 }
 
 .carousel {
@@ -176,6 +235,7 @@ h1 span:last-child {
   display: flex;
   justify-content: center;
 }
+
 .carousel-wrapper {
   overflow-x: auto;
   white-space: nowrap;
@@ -186,6 +246,16 @@ h1 span:last-child {
   height: 3cm;
   background-color: white;
   display: inline-block;
+}
+
+.carousel-item:nth-child(even) {
+  background-image: url("./assets/images/carousel-odd.png");
+  background-size: cover;
+}
+
+.carousel-item:nth-child(odd) {
+  background-image: url("./assets/images/carousel-even.png");
+  background-size: cover;
 }
 
 .carousel-indicators {
@@ -209,13 +279,14 @@ h1 span:last-child {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px 0 2rem 0;
+  padding: 10px 0 0 0;
 }
 
 .team-intro {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 10px;
+  padding-left: 20px;
 }
 
 .team-title {
@@ -228,11 +299,18 @@ h1 span:last-child {
 
 .mountain {
   width: 100%;
-  background-image: url("./assets/images/peak.png");
   background-size: cover;
 }
+
+.mountain:first-child {
+  background-image: url("./assets/images/mountain-1.png");
+}
+
+.mountain:last-child {
+  background-image: url("./assets/images/mountain-2.png");
+}
+
 .mountain.active .tab-moble i {
-  color: red;
   transform: rotateZ(180deg);
 }
 
@@ -248,7 +326,7 @@ h1 span:last-child {
   width: 100%;
   padding-left: 10px;
   padding-right: 10px;
-  height: 0rem;
+  height: 0;
   overflow: hidden;
 }
 
@@ -268,6 +346,7 @@ h1 span:last-child {
   font-size: larger;
   color: var(--blue);
 }
+
 .schedule-box > div {
   margin-top: 10px;
   color: var(--blue);
@@ -279,45 +358,58 @@ h1 span:last-child {
   text-align: right;
 }
 
-footer {
-  background-color: var(--blue);
-  padding: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  gap: 10px;
-  align-items: center;
-}
-
-footer a {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  text-decoration: none;
-  color: rgba(255, 255, 255, 0.767);
-  opacity: 0.3;
-}
-
-footer a img {
-  height: 1cm;
-  width: 1cm;
-  border-radius: 0.5cm;
-  border: 1px solid var(--lightDark);
-}
-
-footer a p span {
-  text-transform: uppercase;
-  font-weight: 600;
-}
-
-footer p {
-  text-transform: uppercase;
-  color: white;
-  opacity: 0.2;
-}
-
 .desk-tab-bar {
   display: none;
+}
+
+.humbergur {
+  display: none;
+}
+
+.close-btn {
+  display: none;
+}
+
+@media screen and (max-width: 400px) {
+  .sticky-nav .nav-links {
+    position: fixed;
+    display: none;
+    top: 0;
+    left: 0;
+    background-color: var(--blue);
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    z-index: 99;
+  }
+
+  .nav-links.active {
+    display: flex;
+    z-index: 99;
+  }
+
+  .nav-links li {
+    color: var(--ash);
+  }
+
+  .close-btn {
+    position: absolute;
+    display: flex;
+    top: 3rem;
+    right: 3rem;
+    text-decoration: none;
+    font-size: 20px;
+    background-color: rgba(255, 0, 0, 0.404);
+    padding: 5px 10px;
+  }
+
+  .humbergur {
+    display: block;
+    font-size: 24px;
+  }
 }
 
 @media screen and (min-width: 769px) {
@@ -329,16 +421,12 @@ footer p {
     width: 70%;
   }
 
-  .intro-p {
-    padding: 5px 5rem;
-    font-size: 20px;
-  }
-
   .team-intro {
     width: 70%;
     align-items: center;
     grid-template-columns: repeat(6, 1fr);
   }
+
   .team-title {
     padding: 0 10px;
     grid-column: span 1;
@@ -353,6 +441,22 @@ footer p {
     display: none;
   }
 
+  .tab-content {
+    padding-left: 10rem;
+  }
+
+  .mountain {
+    display: none;
+  }
+
+  .mountain.active-desk {
+    display: flex;
+  }
+
+  .mountain.active-desk .tab-content {
+    height: 30rem;
+  }
+
   .desk-tab-bar {
     display: flex;
     height: 1cm;
@@ -363,7 +467,7 @@ footer p {
   }
 
   .desk-tab {
-    padding: 0px 5px;
+    padding: 0 5px;
     background-color: var(--blue);
     height: 100%;
     outline: none;
@@ -372,6 +476,7 @@ footer p {
     font-weight: 700;
     font-size: 16px;
     color: var(--ash);
+    cursor: pointer;
   }
 
   .desk-tab.active {
@@ -383,10 +488,7 @@ footer p {
     font-weight: 700;
     font-size: 16px;
     background-color: var(--ash);
-  }
-
-  .tab-content {
-    padding-left: 10rem;
+    text-decoration: underline;
   }
 
   .schedule-box {
