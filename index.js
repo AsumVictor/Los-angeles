@@ -5,6 +5,9 @@ const navToggler = document.querySelector('.humbergur');
 const closeBtn = document.querySelector('.close-btn');
 const MobileNav = document.querySelector('.sticky-nav  .nav-links');
 const NavLinks = document.querySelectorAll('.nav-links li');
+const activeDeskTab = document.querySelector('.desk-tab.active');
+const activeMountainDesk = document.querySelector('.mountain.active-desk');
+
 
 mobileTabs.forEach((entry) => {
   entry.addEventListener('click', () => {
